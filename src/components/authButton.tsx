@@ -1,5 +1,4 @@
 // components/AuthButton.tsx
-import { useAuth0 } from '@auth0/auth0-react';
 import { useAppDispatch } from '../store/store';
 import { loginSuccess } from '../store/authSlice';
 import { useUser } from '@auth0/nextjs-auth0/client';
