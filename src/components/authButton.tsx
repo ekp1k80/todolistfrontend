@@ -1,12 +1,12 @@
 // components/AuthButton.tsx
 import { useAuth0 } from '@auth0/auth0-react';
-import { useAppDispatch, useAppSelector } from '../store/store';
-import { loginSuccess, logoutSuccess } from '../store/authSlice';
+import { useAppDispatch } from '../store/store';
+import { loginSuccess } from '../store/authSlice';
 import { useUser } from '@auth0/nextjs-auth0/client';
 import { useRouter } from 'next/router';
 
 const AuthButton: React.FC = () => {
-	const { user, error, isLoading } = useUser();
+	const { user } = useUser();
 	const router = useRouter()
   const dispatch = useAppDispatch();
 

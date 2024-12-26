@@ -34,7 +34,8 @@ export const updateTodo = createAsyncThunk(
           completed: false,
         });
         return { id, task: response.data.task };
-      } catch (error: any) {
+      } catch (error: unknown) {
+        // @ts-expect-error is an object
         return rejectWithValue(error.response?.data || 'Failed to update todo');
       }
     }
@@ -47,7 +48,8 @@ export const fetchTodos = createAsyncThunk(
     try {
       const response = await axios.get(`${process.env.NEXT_PUBLIC_API_SERVER_URI}/api/todos`);
       return response.data; // Assuming the API returns an array of todos
-    } catch (error: any) {
+    } catch (error: unknown) {
+        // @ts-expect-error is an object
       return rejectWithValue(error.response?.data || 'Failed to fetch todos');
     }
   }
@@ -59,7 +61,8 @@ export const deleteTodo = createAsyncThunk(
       try {
         await axios.delete(`${process.env.NEXT_PUBLIC_API_SERVER_URI}/api/todos/${id}`);
         return id; // Retorna el ID del todo eliminado
-      } catch (error: any) {
+      } catch (error: unknown) {
+        // @ts-expect-error is an object
         return rejectWithValue(error.response?.data || 'Failed to delete todo');
       }
     }
@@ -71,7 +74,8 @@ export const deleteTodo = createAsyncThunk(
       try {
         const response = await axios.post(`${process.env.NEXT_PUBLIC_API_SERVER_URI}/api/todos`, { task });
         return response.data; // Suponiendo que el backend devuelve el todo creado
-      } catch (error: any) {
+      } catch (error: unknown) {
+        // @ts-expect-error is an object
         return rejectWithValue(error.response?.data || 'Error adding todo');
       }
     }

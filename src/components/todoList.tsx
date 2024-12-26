@@ -39,8 +39,8 @@ const TodoList: React.FC = () => {
         <p>No tasks found. Add some tasks!</p>
       ) : (
         <ul>
-          {todos.map((todo)  => (
-						<Box mb={"12px"}>
+          {todos.map((todo, index)  => (
+						<Box mb={"12px"} key={`TodoPointFromList${index}`}>
             	<TodoPoint value={todo.task} id={todo.id}/>
 						</Box>
           ))}

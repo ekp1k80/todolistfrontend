@@ -10,7 +10,7 @@ const Wrapper = styled("div")`
 `
 
 const Home: React.FC = () => {
-  const { user, error, isLoading } = useUser();
+  const { user } = useUser();
 
   return (
     <Wrapper >
