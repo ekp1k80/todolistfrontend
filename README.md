@@ -1,40 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
 
-## Getting Started
+# Deploy Next.js Application to Vercel
 
-First, run the development server:
+This guide explains how to deploy a Next.js application to [Vercel](https://vercel.com/).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Prerequisites
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- A Vercel account
+- Node.js installed on your local machine
+- Git installed on your local machine
+- A basic understanding of Next.js
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+---
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Steps to Deploy
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+### 1. **Install Vercel CLI (optional)**
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+If you want to deploy via the command line, you can install the Vercel CLI.
 
-## Learn More
+1. Open your terminal and run:
+   ```bash
+   npm install -g vercel
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+2. After installation, you can run `vercel` commands to deploy your project.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 2. **Create a Vercel Account**
 
-## Deploy on Vercel
+1. Go to [Vercel](https://vercel.com/) and create a new account or log in if you already have one.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. Once logged in, you’ll be redirected to the dashboard.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+---
+
+### 3. **Deploy Your Project**
+
+There are two methods for deploying to Vercel: via the Vercel dashboard or through the Vercel CLI.
+
+#### Method 1: **Deploy Using the Vercel Dashboard**
+
+1. Go to the [Vercel Dashboard](https://vercel.com/dashboard).
+2. Click the **New Project** button.
+3. Connect your GitHub, GitLab, or Bitbucket account.
+4. Choose the repository that contains your Next.js project.
+5. Vercel will automatically detect the project as a Next.js application and provide default build settings.
+6. Click **Deploy**.
+
+Vercel will automatically build and deploy your Next.js project.
+
+#### Method 2: **Deploy Using Vercel CLI**
+
+1. In your project directory, run:
+   ```bash
+   vercel
+   ```
+
+2. Follow the prompts to link your project to your Vercel account.
+3. Once linked, Vercel will start the deployment process. After it's finished, it will provide you with a URL where your app is deployed.
+
+---
+
+### 4. **Configure Domain (Optional)**
+
+If you want to set up a custom domain for your deployed project, follow these steps:
+
+1. Go to the **Domains** tab in your Vercel dashboard.
+2. Click **Add Domain** and follow the instructions to add your custom domain.
+3. Update the DNS settings to point to the Vercel platform.
+
+---
+
+### 5. **Automatic Deployment on Push**
+
+Every time you push changes to your repository, Vercel will automatically deploy the new version of your app.
+
+1. Make sure your Git repository is connected to Vercel.
+2. Push changes to your GitHub, GitLab, or Bitbucket repository.
+3. Vercel will automatically deploy the updated version of your app.
+
+---
+
+### Conclusion
+
+Your Next.js application is now deployed on Vercel! You can access it using the URL provided by Vercel or your custom domain if you've set one up.
