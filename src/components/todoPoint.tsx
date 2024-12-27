@@ -1,6 +1,6 @@
 import { useAppDispatch } from '@/store/store';
 import { deleteTodo, updateTodo } from '@/store/todoSlice';
-import { Button, Grid2, styled } from '@mui/material'
+import { Button, Grid2, styled, useMediaQuery } from '@mui/material'
 import React, { useState, useRef } from 'react'
 
 const GradientText = styled(Button)({
@@ -85,12 +85,14 @@ const TodoPoint: React.FC<ITodoPoint> = ({ id, value }) => {
     dispatch(deleteTodo(id)); // Llama al thunk para eliminar el todo
   };
 
+const matches = useMediaQuery('(min-width:600px)');
+
   return (
     <Grid2 container>
       <Grid2 size={1}></Grid2>
       <Grid2 size={9}>
         <Grid2 container>
-          <StartWrapper size={10} justifyContent={'center'} alignItems={"center"} container>
+          <StartWrapper size={matches ? 8 : 6} justifyContent={'center'} alignItems={"center"} container>
             {isEditing ? (
               <CustomInput
                 ref={inputRef} // Conectar el ref al input
@@ -102,12 +104,12 @@ const TodoPoint: React.FC<ITodoPoint> = ({ id, value }) => {
               <Text>{value}</Text>
             )}
           </StartWrapper>
-          <Wrapper size={1}>
+          <Wrapper size={matches ? 2: 3 }>
             <GradientText onClick={handleSaveOrEditButton}>
               {isEditing ? 'Save' : 'Edit'}
             </GradientText>
           </Wrapper>
-          <EndWrapper size={1}>
+          <EndWrapper size={matches ? 2 : 3}>
             <DeleteButton onClick={handleDelete}>Delete</DeleteButton>
           </EndWrapper>
         </Grid2>

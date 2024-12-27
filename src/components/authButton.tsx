@@ -3,6 +3,18 @@ import { useAppDispatch } from '../store/store';
 import { loginSuccess } from '../store/authSlice';
 import { useUser } from '@auth0/nextjs-auth0/client';
 import { useRouter } from 'next/router';
+import { styled } from '@mui/system';
+
+const CustomButton = styled("button")`
+  width: 25vw;
+  height: 35px;
+  font-size: 22px;
+  margin: 16px 0;
+  cursor: pointer;
+  background-color: #0A1928;
+  border: none;
+  color: white;
+`
 
 const AuthButton: React.FC = () => {
 	const { user } = useUser();
@@ -24,10 +36,10 @@ const AuthButton: React.FC = () => {
   return (
     <div>
       {!user ? (
-        <button onClick={() => loginWithRedirect()}>Log in</button>
+        <CustomButton onClick={() => loginWithRedirect()}>Log in</CustomButton>
       ) : (
          <div>
-          <button onClick={handleLogout}>Log out</button>
+          <CustomButton onClick={handleLogout}>Log out</CustomButton>
         </div>
 			)}
     </div>
