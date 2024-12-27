@@ -37,7 +37,7 @@ const AddTodo = () => {
 	console.log(dispatch)
     try {
       await dispatch(addTodo(data.task)); // Despacha la acción con Redux Toolkit
-    //   reset(); // Limpia el formulario después de enviar
+      reset(); // Limpia el formulario después de enviar
     } catch (error) {
       console.error('Error adding todo:', error);
     }
